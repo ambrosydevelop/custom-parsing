@@ -53,6 +53,8 @@ except FileNotFoundError: #If file not exists
                 file.write(f'ServerUrl:{server_url}')
 
 class Parse:
+    
+    
     def __init__(self,url,tag,tag_class):
         self.url = url
         self.tag = tag
@@ -69,8 +71,11 @@ class Parse:
         return bs.find_all(self.tag,_class=self.tag_class) if self.tag_class != 'None' else bs.find_all(self.tag)
 
 class ConvertData():
+    
+    
     def __init__(self,elements):
         self.elements = elements
+        
     def convert_to_text(self) -> list:
         #Return only text value from tag
         return [v.get_text() for v in self.elements]
